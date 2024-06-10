@@ -14,7 +14,7 @@ const tebakBuah = (fruit) => {
     })
 }
 
-tebakBuah("Apel")
+tebakBuah("Edelberry")
 .then((isinya) => {
     console.log((isinya) + " adalah buah yang sesuai, mantap!")
 })
@@ -27,14 +27,14 @@ const pilihAngka = (numb) => {
         setTimeout(() => {
             const sesuatu = [1, 2, 3, 5, 8, 11, 15, 20];
             let tebakAngka = sesuatu.find((angka) => {
-                return angka === sesuatu.length
+                return angka === sesuatu
             })
             if (tebakAngka) {
                 resolve(tebakAngka)
             } else {
                 reject(new Error ("input angka tidak sesuai kriteria"))
             }
-        }, 5000)  
+        }, 1000)  
     })
 }
 
@@ -47,4 +47,24 @@ const pilihanAngka = async function(numb) {
     }
 }
 
-pilihanAngka(20)
+pilihanAngka(15)
+
+function loginAccount(email, password) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (email === "user@example.com" && password === "makan_gratis") {
+                resolve ({userId: 1, profile: "User Profile"})
+            } else {
+                reject(new Error("Try Again, Authentication Failed"))
+            }
+        }, 1000)
+    })
+}
+
+loginAccount("user@example.com", "makan_gratis")
+.then((email, password) => {
+    console.log((email, password) + " has been verified")
+})
+.catch((error) => {
+    console.log("Account has not been registered")
+})

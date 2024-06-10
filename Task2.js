@@ -22,5 +22,4 @@ const showMonth = (error, detectMonth) => {
     }
 };
 
-
 getMonth(showMonth)
